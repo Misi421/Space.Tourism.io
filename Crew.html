@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tourism</title>
+    <link rel="stylesheet" href="style.css ">
+    <script src="index.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <div>
+        <div class="background">
+            <img class="media-poza" src="Bitmap crew.png" alt="">
+            <img class="primapoza" src="background-3.jpg" alt="">
+        </div>
+        <nav class="row">
+            <div class="row center nav-bar">
+                <img class="logo" src="Group 2.png" alt="">
+                <img class="rectangle logo" src="Rectangle.png" alt="">
+                <div class="dropdown">                    
+                    <img onclick="dropDown()" class="menu dropbtn" class="menu" src="menu dropdown.png" alt="">
+                    <li class="list row dropdown-content" id="Dropdown-1">
+                        <img class="ics" src="ics.png" alt="">
+                        <ul class="nav-list nav-1"><button class="button-nav" onclick="redirectToHome()">00 HOME</button></ul>
+                        <ul class="nav-list"><button class="button-nav" onclick="redirectToDestination()">01 DESTINATION</button></ul>
+                        <ul class="nav-list"><button class="button-nav activ" onclick="redirectToCrew()">02 CREW</button></ul>                           
+                        <ul class="nav-list"><button class="button-nav" onclick="redirectToTehnology()">03 TECHNOLOGY</button></ul>
+                    </li>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="content-container"></div>
+    <p class="mediu absolute margin-100 margin-top">02 Meet your crew</p>
+    <div class="row reverse">
+        <div>
+            <img class="crew absolute image" src="" alt="">
+        </div>
+        <div class="column-2 slide absolute">
+            <p class="role"></p>
+            <p class="mare-2 name"></p>
+            <p class="mic-1 bio"></p>
+            <ul class="list-buton wrap">
+                   <li><button class="cerc Douglas"></button></li> 
+                   <li><button class="cerc Mark"></button></li>
+                   <li><button class="cerc Victor"></button></li>
+                   <li><button class="cerc Anousheh"></button></li>
+            </ul>
+        </div>
+    </div>    
+</body>
+
+</html>
