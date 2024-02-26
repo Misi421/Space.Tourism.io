@@ -1,20 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
-  async function displayDestinationsData(name) {
-    try {
-      const response = await fetch('data.json');
-      const data = await response.json();
-      const destinationsItem = data.destinations.find(item => item.name === name);
+  function fetchDestinationsData(nameDestinations) {
+    return new Promise((resolve, reject) => {
+      fetch('data.JSON')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          const destinationsItem = data.destinations.find(item => item.nameDestinations === nameDestinations);
+          resolve(destinationsItem);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          reject(error);
+        });
+    });
+  }
 
-      if (destinationsItem) {
-        document.querySelector('.name').innerText = destinationsItem.name;
-        document.querySelector('.description').innerText = destinationsItem.description;
-        document.querySelector('.distance').innerText = destinationsItem.distance;
-        document.querySelector('.travel').innerText = destinationsItem.travel;
-        document.querySelector('.images').src = destinationsItem.images.webp;
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+  function displayDestinationsData(nameDestinations) {
+    fetchDestinationsData(nameDestinations)
+      .then(destinationsItem => {
+        if (destinationsItem) {
+          document.querySelector('.nameDestinations').innerText = destinationsItem.nameDestinations;
+          document.querySelector('.description').innerText = destinationsItem.description;
+          document.querySelector('.distance').innerText = destinationsItem.distance;
+          document.querySelector('.travel').innerText = destinationsItem.travel;
+          document.querySelector('.images').src = destinationsItem.images.webp;
+        }
+      });
   }
 
   document.querySelector('.button.moon').addEventListener('click', function () {
@@ -38,74 +53,105 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  async function displaycrewData(reper) {
-    try {
-      const response = await fetch('data.json');
-      const data = await response.json();
-      const crewItem = data.crew.find(item => item.reper === reper);
-
-      if (crewItem) {
-        document.querySelector('.name').innerText = crewItem.name;
-        document.querySelector('.role').innerText = crewItem.role;
-        document.querySelector('.bio').innerText = crewItem.bio;
-        document.querySelector('.image').src = crewItem.image.webp;
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+  function fetchCrewData(reper) {
+      return new Promise((resolve, reject) => {
+      fetch('data.JSON')
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const crewItem = data.crew.find(item => item.reper === reper);
+              resolve(crewItem);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              reject(error);
+          });
+      });
   }
 
-  document.querySelector('.cerc.Douglas').addEventListener('click', function () {
-    displaycrewData('Douglas');
+  function displayCrewData(reper) {
+      fetchCrewData(reper)
+          .then(crewItem => {
+              if (crewItem) {
+                  document.querySelector('.nameCrew').innerText = crewItem.nameCrew;
+                  document.querySelector('.role').innerText = crewItem.role;
+                  document.querySelector('.bio').innerText = crewItem.bio;
+                  document.querySelector('.image').src = crewItem.image.webp;
+              }
+          });
+  }
+  
+
+  document.querySelector('.Douglas').addEventListener('click', function () {
+    displayCrewData('Douglas');
   });
 
-  document.querySelector('.cerc.Mark').addEventListener('click', function () {
-    displaycrewData('Mark');
+  document.querySelector('.Mark').addEventListener('click', function () {
+    displayCrewData('Mark');
   });
 
-  document.querySelector('.cerc.Victor').addEventListener('click', function () {
-    displaycrewData('Victor');
+  document.querySelector('.Victor').addEventListener('click', function () {
+    displayCrewData('Victor');
   });
 
-  document.querySelector('.cerc.Anousheh').addEventListener('click', function () {
-    displaycrewData('Anousheh');
+  document.querySelector('.Anousheh').addEventListener('click', function () {
+    displayCrewData('Anousheh');
   });
 
-  displaycrewData('Douglas');
+  displayCrewData('Douglas');
 });
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  async function displayTechnologyData(index) {
-    try {
-      const response = await fetch('data.json');
-      const data = await response.json();
-      const technologyItem = data.technology.find(item => item.index === index);
-
-      if (technologyItem) {
-        document.querySelector('.name').innerText = technologyItem.name;
-        document.querySelector('.description').innerText = technologyItem.description;
-        document.querySelector('.img').src = technologyItem.img.landscape;
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+  function fetchTechnologyData(index) {
+      return new Promise((resolve, reject) => {
+      fetch('data.JSON')
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const technologyItem = data.technology.find(item => item.index === index);
+              resolve(technologyItem);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              reject(error);
+          });
+      });
   }
 
-  document.querySelector('.cerc-1.first').addEventListener('click', function () {
+  function displayTechnologyData(index) {
+      fetchTechnologyData(index)
+          .then(technologyItem => {
+              if (technologyItem) {
+                  document.querySelector('.nameTechnology').innerText = technologyItem.nameTechnology;
+                  document.querySelector('.description').innerText = technologyItem.description;
+                  document.querySelector('.img').src = technologyItem.img.landscape;
+              }
+          });
+  }
+
+  document.querySelector('.first').addEventListener('click', function () {
+      displayTechnologyData('first');
+    });
+  
+    document.querySelector('.second').addEventListener('click', function () {
+      displayTechnologyData('second');
+    });
+  
+    document.querySelector('.third').addEventListener('click', function () {
+      displayTechnologyData('third');
+    });
+  
     displayTechnologyData('first');
   });
-
-  document.querySelector('.cerc-1.second').addEventListener('click', function () {
-    displayTechnologyData('second');
-  });
-
-  document.querySelector('.cerc-1.third').addEventListener('click', function () {
-    displayTechnologyData('third');
-  });
-
-  displayTechnologyData('first');
-});
 
 
 document.addEventListener("DOMContentLoaded", () => {

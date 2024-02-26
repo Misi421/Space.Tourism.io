@@ -69,6 +69,13 @@ html, body {
     margin-top: 200px;
 }
 
+.column-dest{
+    position: absolute;
+    width: 444px;
+    margin-left: 260px;
+    margin-top: 200px;
+}
+
 .mediu{
     color: #D0D6F9;
     font-family: Barlow Condensed;
@@ -313,8 +320,7 @@ html, body {
 
 .images{
     overflow: hidden;
-    border-radius: 50%;
-    margin-left: 550px;
+    margin-left: 450px;
     transform: translateX(-100%);
     opacity: 0;
     animation: slide-in-anim 1.5s ease-out forwards;
@@ -509,8 +515,13 @@ html, body {
         width: 24px;
         height: 21px;
         position: absolute;
-        margin-top: -113px;
-        margin-left: 370px;
+        margin-top: -88px;
+        margin-left: 360px;
+    }
+
+    .cyrcle{
+        margin-top: 331px;
+        margin-left: 70px;
     }
 
     .dropdown-content {
@@ -562,8 +573,7 @@ html, body {
 
     .media-poza{
         display: flex;
-        width: 425px;
-        height: 832px;
+        height: 100%;
         display: flex;
         position: absolute;
         background-color: #01020ff5;
@@ -583,6 +593,20 @@ html, body {
 
     .column{
         margin: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 210px;
+    }
+
+    .column-dest{
+        margin: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: -40px;
     }
 
     .mediu{
@@ -599,7 +623,6 @@ html, body {
         letter-spacing: 2.7px;
         width: 450px;
         text-align: center;
-        margin-left: 200px;
     }
 
     .mare-media{
@@ -607,9 +630,9 @@ html, body {
         text-align: center;
         font-size: 80px;
         font-style: normal;
-        font-weight: 400;
         line-height: 100px;
-        margin-left: 300px;
+        margin-left: 0px;
+        width: 100%;
     }
 
     .mic-media{
@@ -619,12 +642,11 @@ html, body {
         font-style: normal;
         font-weight: 400;
         line-height: 25px;
-        margin-left: 280px;
         width: 287px;
     }
 
     .explore-media{
-        margin-left: 70px;
+        margin: 0px;
     }
 
     .margin-top{
@@ -646,10 +668,12 @@ html, body {
     }
 
     .calibration-3-media{
-        margin-left: -20px;
-        margin-top: 350px;
-        flex-direction: row;
-        width: 382px;
+        margin-left: 20px;
+    padding: 0px;
+    margin-top: 350px;
+    /* margin-right: -4px; */
+    flex-direction: row;
+    width: 382px;
     }
 
     .button{
@@ -681,8 +705,9 @@ html, body {
     }
 
     .description-media{
+        display: flex;
+        margin-left: 25px;
         width: 327px;
-        margin-left: 60px;
         color: #D0D6F9;
         text-align: center;
         font-size: 15px;
@@ -722,7 +747,9 @@ html, body {
     }
 
     .calibration-2{
-        margin-left: -70px;
+        width: ;
+        margin: 0;
+        display: flex;
         margin-top: 670px;
         text-align: center;
         padding-top: 30px;
